@@ -8,9 +8,9 @@ type VMAP struct {
 	// The version of the VMAP spec (should be 1.0)
 	Version string `xml:"version,attr"`
 	// Zero or more <AdBreak> child elements
-	AdBreaks []AdBreak `xml:"AdBreak"`
+	AdBreaks []AdBreak `xml:"vmap:AdBreak"`
 	// Can be used to express additional information not supported in the VMAP specification.
-	Extensions *Extensions `xml:",omitempty"`
+	Extensions *Extensions `xml:"vmap:Extensions,omitempty"`
 }
 
 // AdBreak represents a single ad break, but may allow for multiple ads.
@@ -61,9 +61,9 @@ type AdBreak struct {
 	// in a repeated ad break may not be the same at each point.
 	RepeatAfter vast.Duration `xml:"repeatAfter,attr,omitempty"`
 	// Provides the player with either an inline ad response or a reference to an ad response.
-	AdSource *AdSource `xml:",omitempty"`
+	AdSource *AdSource `xml:"vast:AdSource,omitempty"`
 	// Defines event tracking URLs
-	TrackingEvents []Tracking `xml:"TrackingEvents>Tracking,omitempty"`
+	TrackingEvents []Tracking `xml:"vast:TrackingEvents>Tracking,omitempty"`
 	// Can be used to express additional information not supported in the VMAP specification.
 	Extensions *Extensions `xml:",omitempty"`
 }
