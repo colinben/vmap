@@ -61,9 +61,9 @@ type AdBreak struct {
 	// in a repeated ad break may not be the same at each point.
 	RepeatAfter vast.Duration `xml:"repeatAfter,attr,omitempty"`
 	// Provides the player with either an inline ad response or a reference to an ad response.
-	AdSource *AdSource `xml:"vast:AdSource,omitempty"`
+	AdSource *AdSource `xml:"vmap:AdSource,omitempty"`
 	// Defines event tracking URLs
-	TrackingEvents []Tracking `xml:"vast:TrackingEvents>Tracking,omitempty"`
+	TrackingEvents []Tracking `xml:"vmap:TrackingEvents>Tracking,omitempty"`
 	// Can be used to express additional information not supported in the VMAP specification.
 	Extensions *Extensions `xml:",omitempty"`
 }
@@ -81,7 +81,7 @@ type AdSource struct {
 	FollowRedirects *bool `xml:"followRedirects,attr,omitempty"`
 	// Contains an embedded VAST response.
 	VASTAdData   *vast.VAST `xml:"VASTAdData>VAST,omitempty"`
-	AdTagURI     *AdTagURI
+	AdTagURI     *AdTagURI  `xml:"vmap:AdTagURI,omitempty"`
 	CustomAdData *CustomAdData
 }
 
